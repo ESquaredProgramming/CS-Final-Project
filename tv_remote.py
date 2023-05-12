@@ -22,6 +22,22 @@ class Television:
         self.__channel = Television.MIN_CHANNEL
     
     
+    # Accessor Functions so the screen can use the tv's values
+    def getVolume(self):
+        return self.__volume
+    
+    def getChannel(self):
+        return self.__channel
+    
+    def getMuted(self):
+        return self.__muted
+    
+    def getStatus(self):
+        return self.__status
+    
+    
+    
+    
     def power(self):
         
         """
