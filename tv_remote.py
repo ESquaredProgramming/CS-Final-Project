@@ -1,14 +1,15 @@
+# tv_remote.py
 
 class Television:
     
     MIN_VOLUME = 0
     MAX_VOLUME = 10
-    MIN_CHANNEL = 0
+    MIN_CHANNEL = 1
     MAX_CHANNEL = 5
     
     
     
-    def __init__(self):
+    def __init__(self) -> None:
         
         """
         The initialization function for the class.
@@ -20,25 +21,51 @@ class Television:
         self.__muted = False
         self.__volume = Television.MIN_VOLUME
         self.__channel = Television.MIN_CHANNEL
+        self.channels = ["News", "Dreadful News", "Exciting News", "Fake News", "Plant Channel"]
+    
+    
     
     
     # Accessor Functions so the screen can use the tv's values
-    def getVolume(self):
+    def getVolume(self) -> int:
+        """
+        Accessor Function for the tv's volume.
+        
+        :return: self.__volume
+        """
         return self.__volume
     
-    def getChannel(self):
+    def getChannel(self) -> int:
+        """
+        Accessor Function for the tv's current channel.
+        
+        :return: self.__channel
+        """
         return self.__channel
     
-    def getMuted(self):
+    def getMuted(self) -> bool:
+        """
+        Accessor Function to see if the tv is muted or not.
+        
+        :return: self.__muted
+        """
         return self.__muted
     
-    def getStatus(self):
+    def getStatus(self) -> bool:
+        """
+        Accessor Function for the tv's status (whether it is on or off).
+        
+        :return: self.__status
+        """
         return self.__status
     
     
     
     
-    def power(self):
+    
+    
+    
+    def power(self) -> None:
         
         """
         Flips the value of Status to either True or False, turning the TV "off" and "on".
@@ -47,7 +74,7 @@ class Television:
         self.__status = not(self.__status)
     
     
-    def mute(self):
+    def mute(self) -> None:
         
         """
         Flips the value of Status to either True or False if the TV is on.
@@ -58,7 +85,7 @@ class Television:
     
     
     
-    def channel_up(self):
+    def channel_up(self) -> None:
         
         """
         If the tv is on, add 1 to self.__channel. If this goes over the maximum channel,
@@ -72,7 +99,7 @@ class Television:
                 self.__channel += 1
     
     
-    def channel_down(self):
+    def channel_down(self) -> None:
         
         """
         If the tv is on, subtract 1 from self.__channel. If this goes under the minimum channel,
@@ -87,7 +114,7 @@ class Television:
     
     
     
-    def volume_up(self):
+    def volume_up(self) -> None:
         
         """
         If the tv is on and the volume is not already at max, increase the volume by 1.
@@ -100,7 +127,7 @@ class Television:
                 self.__volume += 1
     
     
-    def volume_down(self):
+    def volume_down(self) -> None:
         
         """
         If the tv is on and the volume is not already at the minimum, decrease the volume by 1.
@@ -114,11 +141,13 @@ class Television:
     
     
     
-    def __str__(self):
+    def __str__(self) -> str:
         
         """
         Returns the TV status, including the variables status, channel, and volume.
         The volume is displayed as 0 if muted is True.
+        
+        I mainly am using this function for debugging purposes. 
         
         :return: A string displaying the Power, Channel, and Volume.
         
